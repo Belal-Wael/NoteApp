@@ -6,9 +6,9 @@ import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import NotFound from './Components/NotFound/NotFound'
 import { Toaster } from 'react-hot-toast'
-import TokenContextProvider from './Context/tokenContextProvider'
 import 'flowbite';
 import ProtectedRoute from './ProtectedRout/ProtectedRoute'
+import TokenContextProvider from './Context/tokenContextProvider'
 
 function App() {
 
