@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { TokenContext } from '../Context/tokenContextProvider'
+import { TokenContext } from '../Context/TokenContext'
 import { Navigate } from 'react-router-dom';
 
 export default function ProtectedRoute(props) {

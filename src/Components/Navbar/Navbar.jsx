@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import logo from '../../assets/notelogo.png'
 import { Link, NavLink } from 'react-router-dom'
-import { TokenContext } from '../../Context/tokenContextProvider'
+import { TokenContext } from '../../Context/TokenContext'
 
 
 export default function Navbar() {

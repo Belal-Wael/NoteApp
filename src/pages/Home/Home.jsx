@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import axios from 'axios';
-import { TokenContext } from '../../Context/tokenContextProvider';
+import { TokenContext } from '../../Context/TokenContext';
 import notFound from '../../assets/notfounddark.png'
 import "flowbite";
 import { useFormik } from 'formik';
