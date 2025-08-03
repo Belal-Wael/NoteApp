@@ -8,7 +8,7 @@ import NotFound from './Components/NotFound/NotFound'
 import { Toaster } from 'react-hot-toast'
 import 'flowbite';
 import ProtectedRoute from './ProtectedRout/ProtectedRoute'
-import { TokenContextProvider } from './Context/TokenContext'
+import TokenContextProvider  from './Context/TokenContext'
 function App() {
 
   const routes=createBrowserRouter([
