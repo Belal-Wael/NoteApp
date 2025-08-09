@@ -29,6 +29,7 @@ export default function Home() {
     }
    }).catch((error)=>{
      if(error.response?.data?.msg==="not notes found"){
+      setisLoading(false);
         setnoNotes(true);
      }
    })
@@ -42,12 +43,12 @@ export default function Home() {
        }
      }).then((apiResponse)=>{
         if(apiResponse.data.msg==="done"){
-           setNotes(()=>[...notes,apiResponse.data.note])
+            setisLoading(false);
+            setNotes(()=>[...notes,apiResponse.data.note])
             setShowModal(false);
             setEditMode(false);
             setCurrentNoteId(null);
             form.resetForm();
-         
         }
      }).catch((error)=>{
         console.log(error);
@@ -84,8 +85,13 @@ export default function Home() {
       }
     }).then((apiResponse)=>{
        if(apiResponse.data.msg==="done"){
-        setNotes(oldState=>{
+          setNotes(oldState=>{
+            if(oldState.length===1){
+              setnoNotes(true);
+            }
           return oldState.filter(p=>p._id!=noteId);
+
+
         })
        }
     }).catch((error)=>{
@@ -123,9 +129,9 @@ export default function Home() {
       '>
         Add Note
     </button>
-    <div className="container mx-auto mt-10">
-        <div className=" flex justify-center items-center gap-2 flex-wrap w-4/5 mx-auto">
-         {noNotes?<div className='flex justify-center flex-col text-center'>
+    <div className="container mx-auto">
+        <div className=" flex justify-center  gap-2 flex-wrap w-4/5 mx-auto h-full">
+         {noNotes?<div className='flex justify-center flex-col text-center h-3'>
            <img src={notFound} alt="not Found photo" width={400} className='mr-4' />
            <h2 className='text-xl text-blue-600 '>No Notes Found</h2>
           </div>:

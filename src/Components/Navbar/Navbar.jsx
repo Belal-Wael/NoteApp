@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import logo from '../../assets/notelogo.png'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { TokenContext } from '../../Context/TokenContext'
 
 
@@ -8,6 +8,11 @@ export default function Navbar() {
  
   let{token}=useContext(TokenContext);
 
+  const navigate=useNavigate();
+  const signOut=()=>{
+    localStorage.removeItem('token');
+    navigate('/login');
+  }
 
   return <>
 <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-gray-200 dark:bg-gray-900">
@@ -29,7 +34,7 @@ export default function Navbar() {
         </li>
        {
         token? <li>
-          <button  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">SignOut</button>
+          <button  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={()=>signOut()}>SignOut</button>
         </li>:<>
         <li>
           <NavLink to="/login" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</NavLink>

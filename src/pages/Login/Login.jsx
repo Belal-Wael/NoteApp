@@ -24,11 +24,13 @@ const callApi=(formValues)=>{
         navigate('/')
     }
     else{
+      setisLoading(false);
       toast.error('Email or Password incorrect');
     }
    })
    .catch(()=>{
       toast.error('Email or Password incorrect');
+      setisLoading(false);
    })
 }
 
